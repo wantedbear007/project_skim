@@ -1,0 +1,31 @@
+
+
+
+services:
+  cache:
+    image: redis
+    restart: unless-stopped
+    container_name: redis
+    ports:
+      - "6379:6379"
+
+    # environment:
+    #   RABBITMQ_DEFAULT_USER: admin
+    #   RABBITMQ_DEFAULT_PASS: admin
+
+    # healthcheck:
+    #   test:
+    #     - CMD
+    #     - rabbitmq-diagnostics
+    #     - '-q'
+    #     - ping
+      # retries: 3
+      # timeout: 5s
+      # interval: 30s
+
+    volumes:
+      - cache:/data
+
+
+volumes:
+  cache:
