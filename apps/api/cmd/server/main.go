@@ -2,10 +2,10 @@ package main
 
 
 import (
-    "go.uber.org/zap"
     "github.com/wantedbear007/project_skim/internal/env"
     "github.com/wantedbear007/project_skim/internal/logging"
-    "github.com/wantedbear007/project_skim/internal/cache"
+    _"github.com/wantedbear007/project_skim/internal/cache"
+    "github.com/wantedbear007/project_skim/migrations"
 )
 
 
@@ -14,13 +14,13 @@ func main() {
     env.LoadEnv()
 
     logging.InitLogger()
-    cache.InitCache()
+    // cache.InitCache()
 
-    zap.L().Info("hello world")
+    // zap.L().Info("hello world")
 
-    x := env.DATABASE_URL.GetValue()
+    // _ := env.DATABASE_URL.GetValue()
 
+    migrations.RunMigrations()
     
 
-    print("value is %x ", x)
 }

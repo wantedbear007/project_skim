@@ -21,7 +21,9 @@ func InitCache() (*redis.Client,error) {
 
 	client := redis.NewClient(opt)
 
-	if error := client.Ping()
+	// if error := client.Ping(); error {
+
+	// }
 
 	zap.L().Info("Redis client initilized")
 
